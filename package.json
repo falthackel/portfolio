@@ -12,6 +12,7 @@
   "author": "Farrel Jonathan Vickeldo",
   "license": "ISC",
   "devDependencies": {
-    "vite": "^2.0.0"
+    "vite": "^2.0.0",
+    "@remix-run/dev": "^1.0.0"
   }
 }
