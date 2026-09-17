@@ -1,0 +1,17 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "My personal portfolio website",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "keywords": [],
+  "author": "Farrel Jonathan Vickeldo",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^2.0.0"
+  }
+}
