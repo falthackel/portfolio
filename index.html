@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farrel Jonathan Vickeldo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow" id="hero-eyebrow"></div>
+    <h1 id="hero-name"></h1>
+    <p class="role" id="hero-role"></p>
+
+    <svg class="waveform" viewBox="0 0 600 46" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,23 L140,23 L155,6 L168,40 L182,14 L196,23 L260,23 L275,4 L290,42 L305,23 L600,23" />
+    </svg>
+  </header>
+
+  <section class="bio">
+    <h2>Introduction</h2>
+    <div id="bio-body"></div>
+  </section>
+
+  <section>
+    <h2>Research Focus</h2>
+    <div class="case-file">
+      <div class="meta" id="research-meta"></div>
+      <h3 id="research-title"></h3>
+      <div id="research-intro"></div>
+      <ul class="biomarker-list" id="research-biomarkers"></ul>
+      <p id="research-collab"></p>
+      <div class="status-line"><span class="status-dot"></span> <span id="research-status"></span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="lens-filter" id="lens-filter"></div>
+    <div class="entry-list" id="projects-list"></div>
+  </section>
+
+  <section>
+    <h2>Background</h2>
+    <p id="background-text"></p>
+    <div class="tags" id="background-tags"></div>
+  </section>
+
+  <footer>
+    <div id="footer-location"></div>
+    <div class="contact-line">
+      <a href="#" id="footer-email">Email</a>
+      <a href="#" id="footer-linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#" id="footer-github" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </footer>
+
+</div>
+
+<script src="content.js"></script>
+<script src="render.js"></script>
+</body>
+</html>
