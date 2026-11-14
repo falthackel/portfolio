@@ -1,0 +1,76 @@
+---
+// Case-study page, one per file in src/content/projects/.
+// Phase 1 version: summary facts, lens switch and the written case.
+// Phase 2 adds diagrams, demo media and downloadable artifacts.
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LensSwitch from '../../components/LensSwitch.astro';
+import site from '../../content/site.json';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const p = project.data;
+const { Content } = await render(project);
+---
+
+<BaseLayout title={`${p.title}, ${site.name}`} description={p.summary}>
+  <article class="case page">
+    <p class="case__back"><a href="/work/">All projects</a></p>
+    <header class="case__head">
+      <p class="label">{p.type}</p>
+      <h1>{p.title}</h1>
+      <p class="case__summary">{p.summary}</p>
+      <dl class="facts">
+        {p.result && <div><dt>Key result</dt><dd>{p.result}</dd></div>}
+        {p.role && <div><dt>My role</dt><dd>{p.role}</dd></div>}
+        <div><dt>Timeframe</dt><dd>{p.date}</dd></div>
+        {p.stack.length > 0 && <div><dt>Stack</dt><dd>{p.stack.join(', ')}</dd></div>}
+      </dl>
+    </header>
+
+    <figure class="case__figure">
+      <Image src={p.thumbnail} alt={p.thumbnailAlt} widths={[480, 800, 1200]} sizes="(min-width: 1000px) 960px, 100vw" loading="eager" />
+    </figure>
+
+    <div class="case__lens"><LensSwitch size="large" id="case-lens" /></div>
+
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .case { padding-block: 2rem 4rem; }
+  .case__back { font-weight: 600; margin-bottom: 2rem; }
+  .case__head h1 { font-size: var(--step-4); max-width: 24ch; }
+  .case__summary { font-size: var(--step-1); line-height: 1.5; }
+  .facts {
+    display: grid;
+    gap: 1rem 2rem;
+    margin: 1.5rem 0 2rem;
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    max-width: 60rem;
+  }
+  .facts dt { font-size: var(--step--1); color: var(--muted); }
+  .facts dd { margin: 0; font-weight: 600; }
+  @media (min-width: 640px) { .facts { grid-template-columns: 1fr 1fr; } }
+  .case__figure {
+    margin: 0 0 2.5rem;
+    max-width: 60rem;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .case__figure :global(img) { width: 100%; }
+  .case__lens { max-width: 44rem; margin-bottom: 2.5rem; }
+</style>

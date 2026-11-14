@@ -1,0 +1,79 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  featured?: boolean;
+  headingLevel?: 'h2' | 'h3';
+}
+const { project, featured = false, headingLevel = 'h3' } = Astro.props;
+const p = project.data;
+const Heading = headingLevel;
+const href = `/work/${project.id}/`;
+---
+
+<article class:list={['card', { 'card--featured': featured }]} data-lenses={p.lenses.join(' ')}>
+  <div class="card__media">
+    <Image
+      src={p.thumbnail}
+      alt={p.thumbnailAlt}
+      widths={featured ? [480, 800, 1200] : [400, 640, 900]}
+      sizes={featured ? '(min-width: 900px) 640px, 100vw' : '(min-width: 900px) 520px, 100vw'}
+      loading="lazy"
+    />
+  </div>
+  <div class="card__body">
+    <p class="label">{p.type}, {p.date}</p>
+    <Heading class="card__title"><a href={href}>{p.title}</a></Heading>
+    <p class="card__summary">{p.summary}</p>
+    <div class="card__lenses">
+      {p.engineerLine && p.lenses.includes('engineer') && (
+        <p data-for="engineer"><span class="lens-chip lens-chip--engineer">Engineer</span> {p.engineerLine}</p>
+      )}
+      {p.productLine && p.lenses.includes('product') && (
+        <p data-for="product"><span class="lens-chip lens-chip--product">Product</span> {p.productLine}</p>
+      )}
+    </div>
+    <a class="card__more" href={href}>Read the case<span class="visually-hidden">: {p.title}</span></a>
+  </div>
+</article>
+
+<style>
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .card__media {
+    background: var(--surface);
+    border-bottom: 1px solid var(--rule);
+  }
+  .card__media img { width: 100%; }
+  .card__body { padding: 1.25rem 1.25rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
+  .card__title { font-size: var(--step-1); }
+  .card__title a { color: var(--ink); text-decoration: none; }
+  .card__title a:hover { text-decoration: underline; text-underline-offset: 0.18em; }
+  .card__summary { margin-bottom: 1rem; }
+  .card__lenses p { font-size: var(--step--1); color: var(--muted); margin-bottom: 0.6rem; }
+  .card__lenses .lens-chip { margin-right: 0.35rem; }
+  .card__more { margin-top: auto; padding-top: 0.5rem; font-weight: 600; align-self: flex-start; }
+
+  .card--featured .card__title { font-size: var(--step-3); }
+  .card--featured .card__summary { font-size: var(--step-1); line-height: 1.45; }
+
+  @media (min-width: 900px) {
+    .card--featured { flex-direction: row; }
+    .card--featured .card__media {
+      flex: 0 0 55%;
+      border-bottom: 0;
+      border-right: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+    }
+    .card--featured .card__body { padding: 2rem; }
+  }
+</style>

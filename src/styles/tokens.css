@@ -1,0 +1,75 @@
+/* Design tokens. All colors, fonts and sizes live here.
+   Every text/background pair was checked for WCAG AA contrast (2026-11-14):
+   lowest text pair is product text on the light background, 5.42:1. */
+
+:root {
+  /* Light mode */
+  --bg: #F7F8FB;
+  --surface: #FFFFFF;
+  --ink: #16204A;
+  --muted: #545C80;
+  --rule: #DCE0EC;
+  --lens-engineer: #2B3FA8;
+  --lens-product: #8A5D00;        /* product color for text */
+  --lens-product-fill: #F4C04D;   /* product color for chips and highlights */
+  --on-engineer: #FFFFFF;         /* text on an engineer-colored fill */
+  --on-product-fill: #16204A;     /* text on a product-colored fill */
+  color-scheme: light;
+
+  /* The accent follows the active lens (see global.css). */
+  --accent: var(--lens-engineer);
+  --on-accent: var(--on-engineer);
+
+  /* Type */
+  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Atkinson Hyperlegible Next", "Atkinson Hyperlegible", system-ui, sans-serif;
+  --step--1: 0.875rem;
+  --step-0: 1rem;
+  --step-1: 1.25rem;
+  --step-2: 1.563rem;
+  --step-3: 1.953rem;
+  --step-4: 2.441rem;
+  --step-5: 3.052rem;
+  --body-size: 1.0625rem;
+  --measure: 68ch;
+
+  /* Space and shape */
+  --gutter: 16px;
+  --radius: 6px;
+  --page-max: 72rem;
+}
+
+/* Dark mode: follows the system setting unless the visitor chose light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #10163A;
+    --surface: #19214D;
+    --ink: #E8EBF7;
+    --muted: #A3AACB;
+    --rule: #2C3666;
+    --lens-engineer: #8FA2FF;
+    --lens-product: #F4C04D;
+    --lens-product-fill: #F4C04D;
+    --on-engineer: #10163A;
+    --on-product-fill: #10163A;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #10163A;
+  --surface: #19214D;
+  --ink: #E8EBF7;
+  --muted: #A3AACB;
+  --rule: #2C3666;
+  --lens-engineer: #8FA2FF;
+  --lens-product: #F4C04D;
+  --lens-product-fill: #F4C04D;
+  --on-engineer: #10163A;
+  --on-product-fill: #10163A;
+  color-scheme: dark;
+}
+
+@media (min-width: 640px) {
+  :root { --gutter: 32px; }
+}

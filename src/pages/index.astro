@@ -1,0 +1,93 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import LensSwitch from '../components/LensSwitch.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Waveform from '../components/Waveform.astro';
+import site from '../content/site.json';
+
+const all = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const featured = all.filter((p) => p.data.featured);
+const [lead, ...rest] = featured;
+---
+
+<BaseLayout
+  title={`${site.name}, AI engineer and product thinker`}
+  description={site.hero.statement}
+>
+  <section class="hero page" aria-labelledby="hero-name">
+    <h1 id="hero-name" class="hero__name">{site.name}</h1>
+    <p class="hero__statement">{site.hero.statement}</p>
+    <p class="hero__meta">{site.hero.credential}<br />{site.hero.location}</p>
+    <div class="hero__lens"><LensSwitch size="large" id="hero-lens" /></div>
+    <div class="hero__actions">
+      <a class="button button--primary" href="#work">See my work</a>
+      <a class="button button--secondary" href={`mailto:${site.contact.email}`}>Email me</a>
+    </div>
+    <Waveform />
+  </section>
+
+  <section id="work" class="section page" aria-labelledby="work-heading">
+    <h2 id="work-heading">Selected work</h2>
+    <p class="section-intro">Each project reads as a case: switch the lens to see how it was built, or what problem it solved and for whom.</p>
+    <div class="work-grid">
+      {lead && <div class="work-grid__lead"><ProjectCard project={lead} featured /></div>}
+      {rest.map((project) => <ProjectCard project={project} />)}
+    </div>
+    <p class="work-all"><a href="/work/">All projects ({all.length})</a></p>
+  </section>
+
+  <section id="contact" class="section page" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">{site.contact.heading}</h2>
+    <p>{site.contact.text}</p>
+    <ul class="contact-list">
+      <li><span class="label">Email</span><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></li>
+      <li><span class="label">LinkedIn</span><a href={site.contact.linkedin} rel="noopener">linkedin.com/in/falthackel</a></li>
+      <li><span class="label">GitHub</span><a href={site.contact.github} rel="noopener">github.com/falthackel</a></li>
+      <li><span class="label">Based in</span>{site.contact.location}</li>
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero { padding-block: 3rem 1rem; }
+  .hero__name {
+    font-size: var(--step-5);
+    font-weight: 800;
+    font-stretch: 75%;
+    font-variation-settings: "wdth" 75, "opsz" 96;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    margin-bottom: 1.25rem;
+  }
+  .hero__statement {
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 450;
+    line-height: 1.3;
+    max-width: 34ch;
+    margin-bottom: 1rem;
+  }
+  .hero__meta { color: var(--muted); margin-bottom: 2rem; }
+  .hero__lens { max-width: 44rem; margin-bottom: 1.5rem; }
+  .hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+  @media (min-width: 900px) {
+    .hero { padding-top: 5rem; }
+    .hero__name { font-size: calc(var(--step-5) * 1.5); }
+    .hero__statement { font-size: var(--step-3); }
+  }
+
+  .work-grid { display: grid; gap: 1.5rem; margin-top: 2rem; }
+  @media (min-width: 900px) {
+    .work-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .work-grid__lead { grid-column: 1 / -1; }
+  }
+  .work-all { margin-top: 2rem; font-weight: 600; }
+
+  .contact-list { list-style: none; padding: 0; display: grid; gap: 1rem; margin-top: 1.5rem; }
+  .contact-list .label { display: block; margin: 0; }
+  @media (min-width: 640px) {
+    .contact-list { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 44rem; }
+  }
+</style>

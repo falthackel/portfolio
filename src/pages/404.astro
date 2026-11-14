@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../content/site.json';
+---
+
+<BaseLayout title={`Page not found, ${site.name}`} description="This page does not exist.">
+  <section class="section page">
+    <h1>Page not found</h1>
+    <p>This page doesn't exist, or it has moved. <a href="/">Go to the home page</a> or <a href="/work/">see all projects</a>.</p>
+  </section>
+</BaseLayout>

@@ -1,0 +1,178 @@
+@import "./tokens.css";
+
+/* ---------- Lens: accent color and which content shows ---------- */
+
+html[data-lens="product"] {
+  --accent: var(--lens-product);
+  --accent-fill: var(--lens-product-fill);
+  --on-accent: var(--on-product-fill);
+}
+html:not([data-lens="product"]) {
+  --accent-fill: var(--lens-engineer);
+  --on-accent: var(--on-engineer);
+}
+
+/* Content marked data-for="engineer" or "product" hides under the other lens.
+   With no JavaScript, data-lens is never set, so everything shows ("Both"). */
+html[data-lens="engineer"] [data-for="product"],
+html[data-lens="product"] [data-for="engineer"],
+html[data-lens="engineer"] [data-lenses]:not([data-lenses~="engineer"]),
+html[data-lens="product"] [data-lenses]:not([data-lenses~="product"]) {
+  display: none;
+}
+
+/* ---------- Base ---------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  font-weight: 650;
+  margin: 0 0 0.5em;
+  text-wrap: balance;
+}
+h2 { font-size: var(--step-3); }
+h3 { font-size: var(--step-1); }
+
+p, ul, ol, dl { margin: 0 0 1em; }
+p { max-width: var(--measure); text-wrap: pretty; }
+
+img, svg, video { max-width: 100%; height: auto; display: block; }
+
+a {
+  color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: -100px;
+  z-index: 10;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--accent);
+}
+.skip-link:focus { top: 0.5rem; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- Layout ---------- */
+
+.page {
+  width: 100%;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: 3.5rem; }
+.section + .section { border-top: 1px solid var(--rule); }
+
+.section-intro {
+  color: var(--muted);
+  margin-top: -0.25rem;
+}
+
+/* Small labels: body face, sentence case, muted. */
+.label {
+  font-size: var(--step--1);
+  color: var(--muted);
+  margin: 0 0 0.35rem;
+}
+
+/* ---------- Buttons ---------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius);
+  border: 2px solid var(--accent);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button--primary { background: var(--accent-fill); color: var(--on-accent); border-color: var(--accent-fill); }
+.button--secondary { background: transparent; color: var(--ink); border-color: var(--muted); }
+.button:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+
+/* ---------- Lens chips ---------- */
+
+.lens-chip {
+  display: inline-block;
+  font-size: var(--step--1);
+  font-weight: 600;
+  line-height: 1.3;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+.lens-chip--engineer { color: var(--lens-engineer); border: 1.5px solid var(--lens-engineer); }
+.lens-chip--product { background: var(--lens-product-fill); color: var(--on-product-fill); border: 1.5px solid var(--lens-product-fill); }
+
+/* ---------- Long-form text from Markdown ---------- */
+
+.prose { max-width: var(--measure); }
+.prose h2 { font-size: var(--step-2); margin-top: 2rem; }
+.prose h3 { font-size: var(--step-0); font-family: var(--font-body); font-weight: 700; margin: 1.25rem 0 0.4rem; }
+.prose ul { padding-left: 1.25rem; }
+.prose li + li { margin-top: 0.25rem; }
+
+.prose [data-for] {
+  border-left: 4px solid var(--lens-engineer);
+  padding-left: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+.prose [data-for="product"] { border-left-color: var(--lens-product-fill); }
+.prose [data-for] > h2:first-of-type { margin-top: 0; }
+.prose [data-for]::before {
+  display: block;
+  font-size: var(--step--1);
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+.prose [data-for="engineer"]::before { content: "Engineer lens"; color: var(--lens-engineer); }
+.prose [data-for="product"]::before { content: "Product lens"; color: var(--lens-product); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

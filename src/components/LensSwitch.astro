@@ -1,0 +1,87 @@
+---
+// The lens switch: Both / Engineer / Product.
+// size="compact" is the header version; size="large" shows a hint under each option.
+// Every switch on the page stays in sync (see the script in BaseLayout.astro).
+import site from '../content/site.json';
+
+interface Props {
+  size?: 'compact' | 'large';
+  id?: string;
+}
+const { size = 'compact', id = 'lens' } = Astro.props;
+const options = ['both', 'engineer', 'product'] as const;
+---
+
+<div class={`lens-switch lens-switch--${size} js-only`} role="group" aria-labelledby={`${id}-label`}>
+  <span id={`${id}-label`} class={size === 'compact' ? 'visually-hidden' : 'lens-switch__label'}>
+    {site.lensIntro}
+  </span>
+  <div class="lens-switch__options">
+    {options.map((key) => (
+      <button type="button" class={`lens-switch__option lens-switch__option--${key}`} data-set-lens={key} aria-pressed={key === 'both' ? 'true' : 'false'}>
+        <span class="lens-switch__name">{site.lenses[key].label}</span>
+        {size === 'large' && <span class="lens-switch__hint">{site.lenses[key].hint}</span>}
+      </button>
+    ))}
+  </div>
+</div>
+
+<style>
+  .lens-switch__label {
+    display: block;
+    font-size: var(--step--1);
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+  }
+  .lens-switch__options {
+    display: flex;
+    border: 1.5px solid var(--muted);
+    border-radius: var(--radius);
+    background: var(--surface);
+    padding: 3px;
+    gap: 3px;
+  }
+  .lens-switch__option {
+    font: inherit;
+    color: var(--ink);
+    background: transparent;
+    border: 0;
+    border-radius: calc(var(--radius) - 2px);
+    cursor: pointer;
+    text-align: left;
+  }
+  .lens-switch__option:hover .lens-switch__name { text-decoration: underline; text-underline-offset: 0.2em; }
+
+  .lens-switch__option[aria-pressed="true"] { background: var(--lens-engineer); color: var(--on-engineer); }
+  .lens-switch__option--both[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+  .lens-switch__option--product[aria-pressed="true"] { background: var(--lens-product-fill); color: var(--on-product-fill); }
+
+  /* Compact (header) */
+  .lens-switch--compact .lens-switch__option {
+    font-size: var(--step--1);
+    font-weight: 600;
+    padding: 0.3rem 0.65rem;
+    min-height: 36px;
+  }
+
+  /* Large (hero and case pages) */
+  .lens-switch--large .lens-switch__options { display: grid; grid-template-columns: 1fr; padding: 4px; gap: 4px; }
+  .lens-switch--large .lens-switch__option {
+    display: flex;
+    flex-direction: column;
+    padding: 0.6rem 0.9rem;
+    min-height: 44px;
+  }
+  .lens-switch__name {
+    font-family: var(--font-display);
+    font-weight: 650;
+    font-size: var(--step-1);
+    line-height: 1.2;
+  }
+  .lens-switch--compact .lens-switch__name { font-family: var(--font-body); font-size: inherit; }
+  .lens-switch__hint { font-size: var(--step--1); opacity: 0.9; }
+
+  @media (min-width: 560px) {
+    .lens-switch--large .lens-switch__options { grid-template-columns: 0.7fr 1fr 1fr; }
+  }
+</style>

@@ -1,0 +1,57 @@
+---
+import site from '../content/site.json';
+import LensSwitch from './LensSwitch.astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+// The "Download CV" button appears once site.json has a "cv" path,
+// e.g. "cv": "/cv/Farrel_Jonathan_Vickeldo_CV.pdf" (file in public/cv/).
+const cv = (site as { cv?: string }).cv;
+---
+
+<header class="site-header">
+  <div class="page site-header__inner">
+    <a class="brand" href="/">{site.shortName}</a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="/#work">Work</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <div class="site-header__controls">
+      <div class="site-header__lens"><LensSwitch size="compact" id="header-lens" /></div>
+      {cv && <a class="button button--primary site-header__cv" href={cv} download>Download CV</a>}
+      <ThemeToggle />
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg);
+  }
+  .site-header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.5rem;
+    padding-block: 0.75rem;
+  }
+  .brand {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: var(--step-1);
+    color: var(--ink);
+    text-decoration: none;
+    margin-right: auto;
+  }
+  .site-nav { display: flex; gap: 1.25rem; order: 3; width: 100%; }
+  .site-nav a { color: var(--ink); font-weight: 600; padding-block: 0.4rem; }
+  .site-header__controls { display: flex; align-items: center; gap: 0.75rem; }
+  .site-header__lens { display: none; }
+  .site-header__cv { min-height: 44px; }
+
+  @media (min-width: 900px) {
+    .brand { margin-right: 0; }
+    .site-nav { order: 0; width: auto; margin-right: auto; }
+    .site-header__lens { display: block; }
+  }
+</style>
