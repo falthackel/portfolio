@@ -12,7 +12,7 @@ stack: [Fourier transform (DFT), FIR filtering, Detrending, Gemini]
 thumbnail: ../../assets/media/market-cycles/decomposition.png
 thumbnailAlt: Illustration, not real data, of a price series broken into a rising trend, smooth cycles and noise.
 featured: false
-order: 5
+order: 6
 attachments:
   - { type: link, label: Gemini conversation, href: "https://share.gemini.google/ypLPjiHsn7zG" }
 ---
