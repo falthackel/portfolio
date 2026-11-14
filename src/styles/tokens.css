@@ -1,19 +1,20 @@
 /* Design tokens. All colors, fonts and sizes live here.
+   Palette: clinical teal (Engineer lens, buttons) + marigold (Product lens).
    Every text/background pair was checked for WCAG AA contrast (2026-11-14):
-   lowest text pair is product text on the light background, 5.42:1. */
+   lowest text pair is product text on the light background, 5.40:1. */
 
 :root {
   /* Light mode */
-  --bg: #F7F8FB;
+  --bg: #F6F8F7;
   --surface: #FFFFFF;
-  --ink: #16204A;
-  --muted: #545C80;
-  --rule: #DCE0EC;
-  --lens-engineer: #2B3FA8;
+  --ink: #13302D;
+  --muted: #4F625F;
+  --rule: #D8E2E0;
+  --lens-engineer: #0B6B64;
   --lens-product: #8A5D00;        /* product color for text */
   --lens-product-fill: #F4C04D;   /* product color for chips and highlights */
   --on-engineer: #FFFFFF;         /* text on an engineer-colored fill */
-  --on-product-fill: #16204A;     /* text on a product-colored fill */
+  --on-product-fill: #13302D;     /* text on a product-colored fill */
   color-scheme: light;
 
   /* The accent follows the active lens (see global.css). */
@@ -42,31 +43,31 @@
 /* Dark mode: follows the system setting unless the visitor chose light. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #10163A;
-    --surface: #19214D;
-    --ink: #E8EBF7;
-    --muted: #A3AACB;
-    --rule: #2C3666;
-    --lens-engineer: #8FA2FF;
+    --bg: #0F201E;
+    --surface: #172E2B;
+    --ink: #E6EFED;
+    --muted: #A2B7B3;
+    --rule: #2A4440;
+    --lens-engineer: #5FD0C3;
     --lens-product: #F4C04D;
     --lens-product-fill: #F4C04D;
-    --on-engineer: #10163A;
-    --on-product-fill: #10163A;
+    --on-engineer: #0F201E;
+    --on-product-fill: #0F201E;
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #10163A;
-  --surface: #19214D;
-  --ink: #E8EBF7;
-  --muted: #A3AACB;
-  --rule: #2C3666;
-  --lens-engineer: #8FA2FF;
+  --bg: #0F201E;
+  --surface: #172E2B;
+  --ink: #E6EFED;
+  --muted: #A2B7B3;
+  --rule: #2A4440;
+  --lens-engineer: #5FD0C3;
   --lens-product: #F4C04D;
   --lens-product-fill: #F4C04D;
-  --on-engineer: #10163A;
-  --on-product-fill: #10163A;
+  --on-engineer: #0F201E;
+  --on-product-fill: #0F201E;
   color-scheme: dark;
 }
 
