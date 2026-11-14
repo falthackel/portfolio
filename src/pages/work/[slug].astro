@@ -120,11 +120,21 @@ const links = p.attachments
   .case__figure {
     margin: 0 0 2.5rem;
     max-width: 60rem;
-    background: var(--surface);
+    padding: clamp(0.75rem, 3vw, 2rem);
+    background: var(--mat);
     border: 1px solid var(--rule);
     border-radius: var(--radius);
     overflow: hidden;
   }
-  .case__figure :global(img) { width: 100%; }
+  /* The picture keeps its shape, centered on the mat; tall ones are capped so they don't fill the screen. */
+  .case__figure :global(img) {
+    width: auto;
+    max-width: 100%;
+    max-height: 32rem;
+    margin-inline: auto;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+  }
   .case__lens { max-width: 44rem; margin-bottom: 2.5rem; }
 </style>

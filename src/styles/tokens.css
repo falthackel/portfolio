@@ -10,6 +10,7 @@
   --ink: #13302D;
   --muted: #4F625F;
   --rule: #D8E2E0;
+  --mat: #E8EFED;                 /* backdrop behind project pictures */
   --lens-engineer: #0B6B64;
   --lens-product: #8A5D00;        /* product color for text */
   --lens-product-fill: #F4C04D;   /* product color for chips and highlights */
@@ -48,6 +49,7 @@
     --ink: #E6EFED;
     --muted: #A2B7B3;
     --rule: #2A4440;
+    --mat: #21403C;
     --lens-engineer: #5FD0C3;
     --lens-product: #F4C04D;
     --lens-product-fill: #F4C04D;
@@ -63,6 +65,7 @@
   --ink: #E6EFED;
   --muted: #A2B7B3;
   --rule: #2A4440;
+  --mat: #21403C;
   --lens-engineer: #5FD0C3;
   --lens-product: #F4C04D;
   --lens-product-fill: #F4C04D;

@@ -48,15 +48,27 @@ const href = `/work/${project.id}/`;
     display: flex;
     flex-direction: column;
   }
+  /* Every picture sits on the same colored mat, inside a fixed 16:10 frame.
+     The picture keeps its own shape and is centered, so wide, tall and square
+     images all look deliberately placed instead of letterboxed. */
   .card__media {
-    background: var(--surface);
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: var(--mat);
     border-bottom: 1px solid var(--rule);
   }
-  .card__media img { width: 100%; }
-  /* Regular cards share one image frame so tall images (charts) don't dominate. */
-  .card:not(.card--featured) .card__media img {
-    aspect-ratio: 16 / 10;
-    object-fit: contain;
+  .card__media img {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: auto;
+    height: auto;
+    max-width: calc(100% - 2.5rem);
+    max-height: calc(100% - 2.5rem);
+    background: #fff; /* backing for any picture with see-through parts */
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.12);
   }
   .card__body { padding: 1.25rem 1.25rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
   .card__title { font-size: var(--step-1); }
@@ -74,10 +86,14 @@ const href = `/work/${project.id}/`;
     .card--featured { flex-direction: row; }
     .card--featured .card__media {
       flex: 0 0 55%;
+      aspect-ratio: auto;
+      min-height: 22rem;
       border-bottom: 0;
       border-right: 1px solid var(--rule);
-      display: flex;
-      align-items: center;
+    }
+    .card--featured .card__media img {
+      max-width: calc(100% - 3rem);
+      max-height: calc(100% - 3rem);
     }
     .card--featured .card__body { padding: 2rem; }
   }
