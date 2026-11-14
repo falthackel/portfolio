@@ -147,4 +147,7 @@ const links = p.attachments
     column-gap: 3rem;
     align-items: start;
   }
+  /* Product always comes first (left, or on top when stacked) so readers meet the
+     problem before the build, whatever order the Markdown file uses. */
+  .case .prose :global([data-for="product"]) { order: -1; }
 </style>
