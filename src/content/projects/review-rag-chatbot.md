@@ -14,13 +14,14 @@ featured: false
 order: 5
 attachments:
   - { type: mp4, label: Chatbot demo, href: assets/projects/chatbot/demo.mp4 }
+  - { type: link, label: Code on GitHub, href: "https://github.com/falthackel/qna-chatbot" }
 ---
 
 <div data-for="engineer">
 
 ## How it was built
 
-Built a retrieval-augmented Q&A tool over 3.4 million Google Play reviews for a music-streaming app, as a take-home AI Engineer assessment.
+Built a retrieval-augmented Q&A tool over 3.4 million Google Play Store reviews of a music-streaming app (the public Spotify reviews dataset on Kaggle), as a take-home AI Engineer assessment. [Code on GitHub](https://github.com/falthackel/qna-chatbot).
 
 Preprocessed and undersampled the reviews for balanced rating representation, then tagged them by sentiment, feature mentions and competitor comparisons to sharpen retrieval relevance before embedding them with OpenAI's text-embedding-ada-002 into a Chroma vector store.
 
@@ -51,7 +52,11 @@ Management can't get quick, structured answers out of 3.4 million unstructured a
 - Multi-app or multi-market rollout
 - Automatically acting on insights
 
-<!-- TODO(Farrel): user stories for this project. The old site showed the
-     finance agent's stories here by mistake (CLAUDE.md problem 6). -->
+## User stories
+
+- As a product manager, I want to ask in plain language which features users appreciate most, so I don't have to read thousands of reviews.
+- As a product manager, I want to see the most common complaints, so the team can prioritize what to fix.
+- As a strategy lead, I want to know how users compare the app with competing streaming services, so I can see where we win and lose.
+- As a non-technical stakeholder, I want example questions and chat history in the interface, so I can start without training and come back to earlier answers.
 
 </div>
