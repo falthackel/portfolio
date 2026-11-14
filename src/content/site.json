@@ -1,6 +1,7 @@
 {
   "name": "Farrel Jonathan Vickeldo",
   "shortName": "Farrel Vickeldo",
+  "cv": "/cv/Farrel_Jonathan_Vickeldo_CV.pdf",
   "hero": {
     "statement": "I build clinical and industrial AI, and I make sure the people who use it can actually work with it.",
     "credential": "MSc student, Smart Medicine and Health Informatics, National Taiwan University",
@@ -8,9 +9,18 @@
   },
   "lensIntro": "Read my work as",
   "lenses": {
-    "both": { "label": "Both", "hint": "The full case" },
-    "engineer": { "label": "Engineer", "hint": "How it was built, evaluated and deployed" },
-    "product": { "label": "Product", "hint": "Problem, users, scope and trade-offs" }
+    "both": {
+      "label": "Both",
+      "hint": "The full case"
+    },
+    "engineer": {
+      "label": "Engineer",
+      "hint": "How it was built, evaluated and deployed"
+    },
+    "product": {
+      "label": "Product",
+      "hint": "Problem, users, scope and trade-offs"
+    }
   },
   "contact": {
     "heading": "Get in touch",

@@ -23,6 +23,7 @@ const [lead, ...rest] = featured;
     <div class="hero__actions">
       <a class="button button--primary" href="#work">See my work</a>
       <a class="button button--secondary" href={`mailto:${site.contact.email}`}>Email me</a>
+      <a class="hero__cv" href={site.cv} download>Download CV (PDF)</a>
     </div>
     <Waveform />
   </section>
@@ -44,6 +45,7 @@ const [lead, ...rest] = featured;
       <li><span class="label">Email</span><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></li>
       <li><span class="label">LinkedIn</span><a href={site.contact.linkedin} rel="noopener">linkedin.com/in/falthackel</a></li>
       <li><span class="label">GitHub</span><a href={site.contact.github} rel="noopener">github.com/falthackel</a></li>
+      <li><span class="label">CV</span><a href={site.cv} download>Download CV (PDF)</a></li>
       <li><span class="label">Based in</span>{site.contact.location}</li>
     </ul>
   </section>
@@ -70,7 +72,8 @@ const [lead, ...rest] = featured;
   }
   .hero__meta { color: var(--muted); margin-bottom: 2rem; }
   .hero__lens { max-width: 44rem; margin-bottom: 1.5rem; }
-  .hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; }
+  .hero__cv { font-weight: 600; padding-block: 0.6rem; }
 
   @media (min-width: 900px) {
     .hero { padding-top: 5rem; }
