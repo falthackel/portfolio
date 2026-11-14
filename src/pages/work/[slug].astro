@@ -87,22 +87,24 @@ const links = p.attachments
 <style>
   .case { padding-block: 2rem 4rem; }
   .case__back { font-weight: 600; margin-bottom: 2rem; }
-  .case__head h1 { font-size: var(--step-4); max-width: 24ch; }
-  .case__summary { font-size: var(--step-1); line-height: 1.5; }
+  /* Everything below uses the full page width, which follows the window and zoom.
+     Blocks that hold several items (facts, the two lens sections) add columns when
+     there is room and stack when there isn't. Paragraphs keep a readable line length. */
+  .case__head h1 { font-size: var(--step-4); max-width: 32ch; }
+  .case__summary { font-size: var(--step-1); line-height: 1.5; max-width: 90ch; }
   .facts {
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr));
     gap: 1rem 2rem;
     margin: 1.5rem 0 2rem;
     padding: 1.25rem;
     background: var(--surface);
     border: 1px solid var(--rule);
     border-radius: var(--radius);
-    max-width: 60rem;
   }
   .facts dt { font-size: var(--step--1); color: var(--muted); }
   .facts dd { margin: 0; font-weight: 600; }
-  @media (min-width: 640px) { .facts { grid-template-columns: 1fr 1fr; } }
-  .files { margin: 0 0 2rem; max-width: 60rem; }
+  .files { margin: 0 0 2rem; }
   .files__title { font-size: var(--step-0); font-family: var(--font-body); font-weight: 700; margin-bottom: 0.5rem; }
   .files ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; }
   .files li {
@@ -119,7 +121,6 @@ const links = p.attachments
   .files__kind { font-size: var(--step--1); color: var(--muted); }
   .case__figure {
     margin: 0 0 2.5rem;
-    max-width: 60rem;
     padding: clamp(0.75rem, 3vw, 2rem);
     background: var(--mat);
     border: 1px solid var(--rule);
@@ -137,4 +138,13 @@ const links = p.attachments
     border-radius: 4px;
   }
   .case__lens { margin-bottom: 2.5rem; }
+  /* Product and Engineer sections side by side when both fit; one column otherwise.
+     With one lens chosen, the visible section takes the whole row. */
+  .case .prose {
+    max-width: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(36rem, 100%), 1fr));
+    column-gap: 3rem;
+    align-items: start;
+  }
 </style>

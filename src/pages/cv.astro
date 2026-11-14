@@ -19,6 +19,8 @@ import cv from '../content/cv.json';
       </p>
     </header>
 
+    <div class="cv__body">
+    <div class="cv__col">
     <section aria-labelledby="exp">
       <h2 id="exp">Experience</h2>
       <ol class="timeline">
@@ -35,6 +37,8 @@ import cv from '../content/cv.json';
       </ol>
     </section>
 
+    </div>
+    <div class="cv__col">
     <section aria-labelledby="edu">
       <h2 id="edu">Education</h2>
       <ol class="timeline">
@@ -100,6 +104,8 @@ import cv from '../content/cv.json';
         <ul class="plain">{cv.languages.map((l) => <li>{l}</li>)}</ul>
       </section>
     </div>
+    </div>
+    </div>
   </article>
 </BaseLayout>
 
@@ -132,6 +138,16 @@ import cv from '../content/cv.json';
   .skills dt { font-weight: 700; }
   .skills dd { margin: 0; }
 
-  .cv__grid { display: grid; gap: 0 2rem; }
-  @media (min-width: 900px) { .cv__grid { grid-template-columns: repeat(3, 1fr); } }
+  .cv__summary { max-width: 90ch; }
+
+  /* Wide windows (or zoomed out): Experience on the left, everything else on the right.
+     Narrow windows: one column, in reading order. */
+  .cv { container-type: inline-size; }
+  .cv__body { display: grid; column-gap: 4rem; align-items: start; }
+  @container (min-width: 84rem) {
+    .cv__body { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+  }
+
+  /* Certifications, awards and languages: as many side by side as fit. */
+  .cv__grid { display: grid; gap: 0 2rem; grid-template-columns: repeat(auto-fill, minmax(min(14rem, 100%), 1fr)); }
 </style>

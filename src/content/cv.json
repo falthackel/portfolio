@@ -100,8 +100,6 @@
     }
   ],
   "otherProjects": [
-    { "name": "Local RAG LLM agent", "year": "2026", "text": "Designed a modular retrieval, memory and tools architecture running on a consumer GPU with Ollama." },
-    { "name": "ICU mortality prediction, PhysioNet 2012", "year": "2026", "text": "NTU coursework: built a mortality-risk model from multivariate ICU time-series data." },
     { "name": "Privacy-preserving NAFLD screening proposal", "year": "2026", "text": "NTU 5-person team: shaped the research question and storyline for a questionnaire-only risk model trained with knowledge transfer from lab data." },
     { "name": "Industrial auto-labeling with multimodal image retrieval", "year": "2025", "text": "Applied SigLIP2 embeddings to automate labeling of manufacturing product images." }
   ],
