@@ -56,7 +56,7 @@
       "dates": "Apr 2024 – Jun 2024",
       "about": "AI consulting start-up working across industries.",
       "points": [
-        "Built and combined 2 models for a DMS: face detection for yawning, and object detection for bottles, vapes, smoke and phones, with accuracy above 84%.",
+        "Built and combined 2 models for a Driver Management System: face detection for yawning, and object detection for bottles, vapes, smoke and phones, with accuracy above 84%.",
         "Evaluated the models and set up inference to support real-time monitoring.",
         "Designed the deployment plan (timeline, budget and resources) for the DMS's further development."
       ]
