@@ -13,6 +13,9 @@ const cv = (site as { cv?: string }).cv;
     <a class="brand" href="/">{site.shortName}</a>
     <nav class="site-nav" aria-label="Main">
       <a href="/#work">Work</a>
+      <a href="/#self-projects">Self-projects</a>
+      <a href="/#school">School</a>
+      <a href="/cv/">CV</a>
       <a href="/#contact">Contact</a>
     </nav>
     <div class="site-header__controls">
@@ -43,16 +46,19 @@ const cv = (site as { cv?: string }).cv;
     text-decoration: none;
     margin-right: auto;
   }
-  .site-nav { display: flex; gap: 1.25rem; order: 3; width: 100%; }
+  .site-nav { display: flex; flex-wrap: wrap; gap: 0 1.25rem; order: 3; width: 100%; }
   .site-nav a { color: var(--ink); font-weight: 600; padding-block: 0.4rem; }
   .site-header__controls { display: flex; align-items: center; gap: 0.75rem; }
   .site-header__lens { display: none; }
+  @media (min-width: 720px) {
+    .site-header__lens { display: block; }
+  }
   .site-header__cv { min-height: 44px; }
   @media (max-width: 479px) {
     .site-header__cv-extra { display: none; }
   }
 
-  @media (min-width: 900px) {
+  @media (min-width: 1120px) {
     .brand { margin-right: 0; }
     .site-nav { order: 0; width: auto; margin-right: auto; }
     .site-header__lens { display: block; }

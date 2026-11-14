@@ -1,0 +1,128 @@
+{
+  "summary": "Biomedical engineer and NTU Smart Medicine and Health Informatics master's student who turns ambiguous needs into clear specifications, workflows and working AI tools. Nearly two years building and deploying AI systems in healthcare and manufacturing, plus product research and strategy work for Indonesia's Ministry of Health and a university consulting start-up. I use generative AI (Claude, Cursor, LangChain) to prototype automation quickly, and I'm motivated to make care work lighter for frontline teams.",
+  "education": [
+    {
+      "school": "National Taiwan University",
+      "place": "Taipei, Taiwan",
+      "degree": "MSc, Smart Medicine and Health Informatics",
+      "dates": "2026 – present",
+      "points": [
+        "INTENSE scholarship recipient (international talent program for Taiwan's tech industry)",
+        "Coursework: AI and Intelligent Medicine, Machine Learning, Health Technology Value Assessment, Biomedical Informatics, Nonprofit Management"
+      ]
+    },
+    {
+      "school": "Institut Teknologi Bandung",
+      "place": "Bandung, Indonesia",
+      "degree": "BSc, Biomedical Engineering",
+      "dates": "2020 – 2024",
+      "points": [
+        "Final project: early autism screening tool for toddlers, designed for preschool teachers rather than clinicians (see Tiny Detector)"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "role": "AI and Master Vision Engineer",
+      "org": "PT Robotec Ergo Solution",
+      "place": "Indonesia",
+      "dates": "Apr 2025 – Dec 2025",
+      "about": "AI start-up delivering computer vision and automation solutions to manufacturers.",
+      "points": [
+        "Led a ~IDR 600M industrial AI initiative, standardizing data pipelines across 500+ product variants to reduce rework cycles.",
+        "Translated requirements from 10+ clients into working AI-and-UI prototypes, bridging business stakeholders with AI, software and electrical engineers.",
+        "Authored PRDs, technical documentation and user manuals that improved client adoption and internal handover.",
+        "Optimized deep learning inference pipelines to meet real-time latency and reliability constraints on factory lines.",
+        "Supervised and mentored 6 team members, delivering projects on time under tight deadlines."
+      ]
+    },
+    {
+      "role": "AI Engineer Intern",
+      "org": "PT Kalbe Farma",
+      "place": "Indonesia",
+      "dates": "Jun 2024 – Mar 2025",
+      "about": "Indonesia's largest healthcare provider and a leading pharmaceutical company.",
+      "points": [
+        "Developed a real-time computer vision system detecting 10+ packaging defect types across 2 business units.",
+        "Contributed to a digital-twin initiative optimizing spray-dryer energy efficiency.",
+        "Evaluated state-of-the-art models and datasets for a healthcare visual question-answering product.",
+        "Co-authored bioinformatics textbook content and spoke in 2 Kalbe Digital University courses."
+      ]
+    },
+    {
+      "role": "ML Engineer Intern",
+      "org": "BrainCore.id",
+      "place": "Indonesia",
+      "dates": "Apr 2024 – Jun 2024",
+      "about": "AI consulting start-up working across industries.",
+      "points": [
+        "Built and combined 2 models for a DMS: face detection for yawning, and object detection for bottles, vapes, smoke and phones, with accuracy above 84%.",
+        "Evaluated the models and set up inference to support real-time monitoring.",
+        "Designed the deployment plan (timeline, budget and resources) for the DMS's further development."
+      ]
+    },
+    {
+      "role": "Product Intern",
+      "org": "Digital Transformation Office, Ministry of Health Indonesia",
+      "place": "Indonesia",
+      "dates": "Nov 2023 – Mar 2024",
+      "about": "",
+      "points": [
+        "Led user and market research with 145 participants on the national health-data platform (SATUSEHAT), synthesizing findings into 5 prioritized recommendations.",
+        "Authored a product requirement document for the platform's technical documentation, improving integration for partner developers."
+      ]
+    },
+    {
+      "role": "Learning Unit Technology",
+      "org": "ShARE ITB",
+      "place": "Indonesia",
+      "dates": "Aug 2021 – Jul 2022",
+      "about": "University start-up combining leadership education and consulting. Client: Verihubs.",
+      "points": [
+        "Conducted market assessments across 4 ASEAN countries to prioritize growth opportunities.",
+        "Delivered internal and external strategic analysis for a client's identity-verification products."
+      ]
+    }
+  ],
+  "leadership": [
+    {
+      "role": "President",
+      "org": "HME ITB (Electrical, Power and Biomedical Engineering Student Association)",
+      "dates": "May 2023 – Mar 2024",
+      "points": [
+        "Led 100+ members across 9 departments and 20 divisions, overseeing academic support, finance and innovation programs.",
+        "Coordinated 80+ internal and external programs, managing stakeholders' timelines and resource constraints.",
+        "Worked with the marketing team to raise Instagram engagement by 447% and reach by 118%, and to gain 900+ followers.",
+        "Secured external partnerships that funded financial support for 6 students.",
+        "Shared scholarship and job opportunities with 2 groups of 150+ members.",
+        "Ran 3 community-service projects on renewable energy and biomedical engineering innovation in schools."
+      ]
+    }
+  ],
+  "otherProjects": [
+    { "name": "Local RAG LLM agent", "year": "2026", "text": "Designed a modular retrieval, memory and tools architecture running on a consumer GPU with Ollama." },
+    { "name": "Market-cycle detection with the Fourier transform", "year": "2026", "text": "Analyzed cyclical patterns in the Jakarta Composite Index in a Jupyter notebook." },
+    { "name": "ICU mortality prediction, PhysioNet 2012", "year": "2026", "text": "NTU coursework: built a mortality-risk model from multivariate ICU time-series data." },
+    { "name": "Privacy-preserving NAFLD screening proposal", "year": "2026", "text": "NTU 5-person team: shaped the research question and storyline for a questionnaire-only risk model trained with knowledge transfer from lab data." },
+    { "name": "Industrial auto-labeling with multimodal image retrieval", "year": "2025", "text": "Applied SigLIP2 embeddings to automate labeling of manufacturing product images." }
+  ],
+  "skills": [
+    { "group": "Generative AI and agents", "items": "Claude, ChatGPT, Gemini, Cursor; LangChain, RAG, prompt engineering, Ollama" },
+    { "group": "Data and ML", "items": "Python (pandas, PyTorch, TensorFlow), SQL, computer vision, model deployment and APIs" },
+    { "group": "Product and strategy", "items": "Requirement and PRD writing, user and market research, problem structuring, executive presentations; Excel, PowerPoint, Google Workspace, Office" }
+  ],
+  "certifications": [
+    "McKinsey Forward Program (in progress, 2026)",
+    "Bangkit Academy machine learning path, led by Google, Gojek, Tokopedia and Traveloka (2024)",
+    "TensorFlow Developer certification, Dicoding Indonesia (2024)"
+  ],
+  "awards": [
+    "Winner, Indonesia Energy Innovation Challenge 2023",
+    "Winner, Shell ThinkEfficiency 2023"
+  ],
+  "languages": [
+    "Bahasa Indonesia (native)",
+    "English (professional)",
+    "Mandarin (elementary, currently studying)"
+  ]
+}
