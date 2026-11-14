@@ -1,5 +1,6 @@
 ---
 title: Multimodal classification across 500+ wheel-rim variants
+category: work
 date: "2025"
 type: Computer vision, client project
 lenses: [engineer, product]
@@ -10,8 +11,8 @@ role: Brought on as the data specialist; ended up owning the full technical pipe
 stack: [SigLIP2, ONNX, FP16 quantization, Intel NUC, PLC integration]
 thumbnail: ../../assets/media/wheel-rim-classification/dashboard.jpg
 thumbnailAlt: Inspection dashboard showing a grey alloy wheel on a green conveyor, with the detected rim code, similarity score and threshold settings.
-featured: true
-order: 3
+featured: false
+order: 1
 # The client progress report (chemco-report.pdf) is not published: no permission
 # from the client. Its substance is described in the "How I ran the project" section.
 attachments:

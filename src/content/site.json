@@ -7,6 +7,20 @@
     "credential": "MSc student, Smart Medicine and Health Informatics, National Taiwan University",
     "location": "Taipei, Taiwan"
   },
+  "sections": {
+    "work": {
+      "title": "Work",
+      "intro": "AI built for clients and factory lines, from data collection to deployment."
+    },
+    "self": {
+      "title": "Self-projects",
+      "intro": "Projects I took on myself to learn a tool or answer a question, several of them on health data."
+    },
+    "school": {
+      "title": "School",
+      "intro": "Research and coursework, starting with my undergraduate final project."
+    }
+  },
   "lensIntro": "Read my work as",
   "lenses": {
     "both": {

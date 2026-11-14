@@ -2,13 +2,12 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import LensSwitch from '../components/LensSwitch.astro';
-import ProjectCard from '../components/ProjectCard.astro';
+import ProjectSection from '../components/ProjectSection.astro';
 import Waveform from '../components/Waveform.astro';
 import site from '../content/site.json';
 
 const all = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
-const featured = all.filter((p) => p.data.featured);
-const [lead, ...rest] = featured;
+const inSection = (category: string) => all.filter((p) => p.data.category === category);
 ---
 
 <BaseLayout
@@ -28,15 +27,11 @@ const [lead, ...rest] = featured;
     <Waveform />
   </section>
 
-  <section id="work" class="section page" aria-labelledby="work-heading">
-    <h2 id="work-heading">Selected work</h2>
-    <p class="section-intro">Each project reads as a case: switch the lens to see how it was built, or what problem it solved and for whom.</p>
-    <div class="work-grid">
-      {lead && <div class="work-grid__lead"><ProjectCard project={lead} featured /></div>}
-      {rest.map((project) => <ProjectCard project={project} />)}
-    </div>
-    <p class="work-all"><a href="/work/">All projects ({all.length})</a></p>
-  </section>
+  <ProjectSection id="work" title={site.sections.work.title} intro={site.sections.work.intro} projects={inSection('work')} />
+  <ProjectSection id="self-projects" title={site.sections.self.title} intro={site.sections.self.intro} projects={inSection('self')} />
+  <ProjectSection id="school" title={site.sections.school.title} intro={site.sections.school.intro} projects={inSection('school')}>
+    <p class="cv-link">For roles, dates and skills, see <a href="/cv/">my CV page</a>.</p>
+  </ProjectSection>
 
   <section id="contact" class="section page" aria-labelledby="contact-heading">
     <h2 id="contact-heading">{site.contact.heading}</h2>
@@ -81,12 +76,7 @@ const [lead, ...rest] = featured;
     .hero__statement { font-size: var(--step-3); }
   }
 
-  .work-grid { display: grid; gap: 1.5rem; margin-top: 2rem; }
-  @media (min-width: 900px) {
-    .work-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .work-grid__lead { grid-column: 1 / -1; }
-  }
-  .work-all { margin-top: 2rem; font-weight: 600; }
+  .cv-link { margin-top: 2rem; }
 
   .contact-list { list-style: none; padding: 0; display: grid; gap: 1rem; margin-top: 1.5rem; }
   .contact-list .label { display: block; margin: 0; }

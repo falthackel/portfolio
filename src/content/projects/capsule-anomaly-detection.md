@@ -1,5 +1,6 @@
 ---
 title: Anomaly detection for capsule defects
+category: work
 date: "2025"
 type: Computer vision, proof of concept
 lenses: [engineer, product]
@@ -10,8 +11,8 @@ result: Image-level AUROC 0.96, F1 0.98 (pixel-level AUROC 0.71, F1 0.30)
 stack: [Anomalib, PatchCore, Reverse Distillation, ImageJ]
 thumbnail: ../../assets/media/capsule-anomaly-detection/inference.jpg
 thumbnailAlt: Four panels of one red capsule, showing the original image, the ground-truth defect mask, the anomaly heat map and the predicted defect outline.
-featured: true
-order: 4
+featured: false
+order: 2
 attachments:
   - { type: jpg, label: AI inference demo, href: assets/projects/anomaly/demo.jpg }
   - { type: png, label: Model evaluation metrics, href: assets/projects/anomaly/result.png }

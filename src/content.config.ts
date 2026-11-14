@@ -10,6 +10,8 @@ const projects = defineCollection({
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      // Which home-page section the project appears in.
+      category: z.enum(['work', 'self', 'school']),
       date: z.string(), // shown as the timeframe, e.g. "2025" or "2024–25"
       type: z.string(), // e.g. "Agentic AI, personal project"
       lenses: z.array(z.enum(['engineer', 'product'])).min(1),
@@ -21,8 +23,8 @@ const projects = defineCollection({
       stack: z.array(z.string()).default([]),
       thumbnail: image(),
       thumbnailAlt: z.string(),
-      featured: z.boolean().default(false),
-      order: z.number().default(99),
+      featured: z.boolean().default(false), // true = large card spanning the full width
+      order: z.number().default(99), // position within its section, lowest first
       attachments: z
         .array(z.object({ type: z.string(), label: z.string(), href: z.string() }))
         .default([]),

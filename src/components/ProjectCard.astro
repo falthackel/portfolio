@@ -53,6 +53,11 @@ const href = `/work/${project.id}/`;
     border-bottom: 1px solid var(--rule);
   }
   .card__media img { width: 100%; }
+  /* Regular cards share one image frame so tall images (charts) don't dominate. */
+  .card:not(.card--featured) .card__media img {
+    aspect-ratio: 16 / 10;
+    object-fit: contain;
+  }
   .card__body { padding: 1.25rem 1.25rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
   .card__title { font-size: var(--step-1); }
   .card__title a { color: var(--ink); text-decoration: none; }

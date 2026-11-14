@@ -1,5 +1,6 @@
 ---
 title: Q&A RAG chatbot for Google Play Store reviews
+category: self
 date: "2024"
 type: LLM application, take-home assessment
 lenses: [engineer, product]
@@ -11,7 +12,7 @@ stack: [LangChain, OpenAI embeddings, gpt-4o-mini, Chroma, Streamlit]
 thumbnail: ../../assets/media/review-rag-chatbot/chat.png
 thumbnailAlt: Streamlit chat window titled "Spotify Google Store Review Analysis Bot", answering which features users appreciate most, with example questions in the sidebar.
 featured: false
-order: 5
+order: 2
 attachments:
   - { type: mp4, label: Chatbot demo, href: assets/projects/chatbot/demo.mp4 }
   - { type: link, label: Code on GitHub, href: "https://github.com/falthackel/qna-chatbot" }

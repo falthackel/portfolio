@@ -1,5 +1,6 @@
 ---
 title: Agentic Financial Monitoring Assistant
+category: self
 date: "2026"
 type: Agentic AI, personal project
 lenses: [engineer, product]
@@ -9,7 +10,7 @@ productLine: Replaces manual checking across several sites, each with its own up
 stack: [Python, LangChain, Google Gemini, DuckDuckGo search]
 thumbnail: ../../assets/media/financial-monitoring-agent/terminal.png
 thumbnailAlt: Terminal session where the assistant answers "update harga hari ini" with a table of USD, SGD and TWD rates, gold and the IHSG index.
-featured: true
+featured: false
 order: 1
 attachments:
   - { type: svg, label: Agentic workflow, href: assets/projects/finance/flowchart.svg }

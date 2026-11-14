@@ -1,0 +1,40 @@
+---
+// One group of project cards (Work, Self-projects or School).
+// Projects with featured: true get a full-width card.
+import type { CollectionEntry } from 'astro:content';
+import ProjectCard from './ProjectCard.astro';
+
+interface Props {
+  id: string;
+  title: string;
+  intro: string;
+  projects: CollectionEntry<'projects'>[];
+  headingLevel?: 'h1' | 'h2';
+}
+const { id, title, intro, projects, headingLevel = 'h2' } = Astro.props;
+const Heading = headingLevel;
+const cardHeading = headingLevel === 'h1' ? 'h2' : 'h3';
+---
+
+<section id={id} class="section page project-section" aria-labelledby={`${id}-heading`}>
+  <Heading id={`${id}-heading`}>{title}</Heading>
+  <p class="section-intro">{intro}</p>
+  <div class="project-grid">
+    {projects.map((project) =>
+      project.data.featured ? (
+        <div class="project-grid__wide"><ProjectCard project={project} featured headingLevel={cardHeading} /></div>
+      ) : (
+        <ProjectCard project={project} headingLevel={cardHeading} />
+      ),
+    )}
+  </div>
+  <slot />
+</section>
+
+<style>
+  .project-grid { display: grid; gap: 1.5rem; margin-top: 2rem; }
+  @media (min-width: 900px) {
+    .project-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .project-grid__wide { grid-column: 1 / -1; }
+  }
+</style>
