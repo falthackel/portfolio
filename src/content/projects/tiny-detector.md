@@ -7,7 +7,7 @@ lenses: [engineer, product]
 summary: A web app that lets preschool teachers screen toddlers for autism risk with the validated M-CHAT questionnaire in Indonesian. Tested with 19 teachers, it scored 73.69 on the System Usability Scale, rated "good".
 engineerLine: Flutter web front end, Node.js REST back end with 20 endpoints and PostgreSQL, deployed on a Debian VPS.
 productLine: Built for teachers, not clinicians, after interviews with a preschool head and a pediatric rehabilitation specialist.
-role: Final-year project. I ran the research, design, build and user testing, supervised by Allya Paramita Koesoema, Ph.D. (ITB), with dr. Marietta Shanti Prananta, Sp.KFR Ped (K) as clinical advisor.
+role: Final-year project. I ran the research, design, build and user testing. Supervised by Allya Paramita Koesoema, S.T., M.T., Ph.D. (ITB) and dr. Marietta Shanti Prananta, Sp.KFR Ped (K) (Padjadjaran University).
 result: SUS satisfaction 73.69 ("good"); between test sessions, efficiency rose from 72.9% to 88.6% and failed tasks fell from 40 to 18.
 stack: [Flutter, Node.js, PostgreSQL, REST API, Apache2, M-CHAT-R/F]
 thumbnail: ../../assets/media/tiny-detector/home.png
@@ -88,7 +88,7 @@ Fix reliability and security before adding features, design the first-use experi
 
 ## How it was built
 
-I followed a design-thinking process: requirements from interviews and literature, a low-fidelity design in Figma validated with prospective users and the clinical advisor, then the full build.
+I followed a design-thinking process: requirements from interviews and literature, a low-fidelity design in Figma validated with prospective users and my clinical supervisor, then the full build.
 
 - **Front end:** a Flutter web app, 8 pages for teachers and admin dashboards.
 - **Back end:** a Node.js REST API with 20 endpoints for sign-up and login (hashed tokens), registering a toddler, saving each answer, submitting and scoring, and the admin views.
