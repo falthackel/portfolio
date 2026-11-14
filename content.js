@@ -146,25 +146,25 @@ const SITE_CONTENT = {
           href: "assets/projects/rim-wheels/workflow.svg",
           thumbnail: "assets/projects/rim-wheels/workflow.svg"
         },
+        {
+          type: "mp4",
+          label: "Software Demo",
+          href: "assets/projects/rim-wheels/demo.mp4",
+          thumbnail: "assets/projects/rim-wheels/demo.jpeg"
+        },
         { 
           type: "pdf",
           label: "Progress Report",
           href: "assets/projects/rim-wheels/chemco-report.pdf",
           thumbnail: "assets/projects/rim-wheels/progress.png"
         },
-        {
-          type: "mp4",
-          label: "Software Demo",
-          href: "assets/projects/rim-wheels/demo.mp4",
-          thumbnail: "assets/projects/rim-wheels/demo.jpeg"
-        }
       ],
       placeholder: false
     },
     {
       date: "2025",
       title: "Anomaly Detection in Sample Defects for Manufacturing Quality Control",
-      lenses: ["engineer"],
+      lenses: ["engineer", "product"],
       engineer: {
         paragraphs: [
           "Built a visual anomaly detection pipeline in Anomalib for Ellips hair-vitamin capsules, targeting eight defect types as an initial proof-of-concept scope.",
