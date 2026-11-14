@@ -1,0 +1,23 @@
+{
+  "name": "Farrel Jonathan Vickeldo",
+  "shortName": "Farrel Vickeldo",
+  "hero": {
+    "statement": "I build clinical and industrial AI, and I make sure the people who use it can actually work with it.",
+    "credential": "MSc student, Smart Medicine and Health Informatics, National Taiwan University",
+    "location": "Taipei, Taiwan"
+  },
+  "lensIntro": "Read my work as",
+  "lenses": {
+    "both": { "label": "Both", "hint": "The full case" },
+    "engineer": { "label": "Engineer", "hint": "How it was built, evaluated and deployed" },
+    "product": { "label": "Product", "hint": "Problem, users, scope and trade-offs" }
+  },
+  "contact": {
+    "heading": "Get in touch",
+    "text": "I'm open to conversations about healthcare AI, applied AI engineering and AI product work.",
+    "email": "farrel.jonathan.fj@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/falthackel/",
+    "github": "https://github.com/falthackel",
+    "location": "Taipei, Taiwan"
+  }
+}
