@@ -35,7 +35,7 @@ Preschool teachers see toddlers every day and could spot early signs, but they h
 I interviewed both sides of the referral path before designing anything:
 
 - **The head of a community preschool (PAUD) in Bandung.** Her teachers had never been trained to recognize children with special needs. They asked for basic training on autism and a tool to help them spot early signs.
-- **A pediatric rehabilitation specialist.** Children usually reach her too late. She needed early signs to be caught by as many people as possible, and asked for a tool simple enough for non-clinicians, with a friendly interface.
+- **A pediatric rehabilitation specialist,** dr. Marietta, who was also my clinical supervisor. Children usually reach her too late. She needed early signs to be caught by as many people as possible, and asked for a tool simple enough for non-clinicians, with a friendly interface.
 
 ## Key decisions
 
