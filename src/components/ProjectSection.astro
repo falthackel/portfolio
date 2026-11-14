@@ -32,9 +32,14 @@ const cardHeading = headingLevel === 'h1' ? 'h2' : 'h3';
 </section>
 
 <style>
-  .project-grid { display: grid; gap: 1.5rem; margin-top: 2rem; }
-  @media (min-width: 900px) {
-    .project-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .project-grid__wide { grid-column: 1 / -1; }
+  /* Cards keep a readable minimum width in rem, so it follows the text size.
+     Each row fits as many cards as there is room for: zooming out adds columns,
+     zooming in or a phone drops to one. The featured card always spans the row. */
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(25rem, 100%), 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
   }
+  .project-grid__wide { grid-column: 1 / -1; }
 </style>
