@@ -81,7 +81,14 @@ const options = ['both', 'engineer', 'product'] as const;
   .lens-switch--compact .lens-switch__name { font-family: var(--font-body); font-size: inherit; }
   .lens-switch__hint { font-size: var(--step--1); opacity: 0.9; }
 
-  @media (min-width: 560px) {
-    .lens-switch--large .lens-switch__options { grid-template-columns: 0.7fr 1fr 1fr; }
+  /* Side by side when there is room: each option is as wide as its text, so every
+     hint stays on one line and the switch keeps one fixed size. Narrower windows stack it. */
+  @media (min-width: 52em) {
+    .lens-switch--large .lens-switch__options {
+      grid-template-columns: repeat(3, max-content);
+      width: max-content;
+    }
+    .lens-switch--large .lens-switch__option { padding: 0.55rem 1.1rem; }
+    .lens-switch--large .lens-switch__hint { white-space: nowrap; }
   }
 </style>
