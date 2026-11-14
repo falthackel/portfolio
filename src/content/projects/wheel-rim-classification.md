@@ -16,7 +16,7 @@ order: 1
 # The client progress report (chemco-report.pdf) is not published: no permission
 # from the client. Its substance is described in the "How I ran the project" section.
 attachments:
-  - { type: svg, label: Integrated solution workflow, href: assets/projects/rim-wheels/workflow.svg }
+  - { type: svg, label: Integrated solution workflow, href: assets/projects/rim-wheels/workflow.webp }
   - { type: mp4, label: Software demo, href: assets/projects/rim-wheels/demo.mp4 }
 ---
 

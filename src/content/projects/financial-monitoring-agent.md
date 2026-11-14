@@ -13,7 +13,7 @@ thumbnailAlt: Terminal session where the assistant answers "update harga hari in
 featured: false
 order: 1
 attachments:
-  - { type: svg, label: Agentic workflow, href: assets/projects/finance/flowchart.svg }
+  - { type: svg, label: Agentic workflow, href: assets/projects/finance/flowchart.webp }
   - { type: gif, label: Agent demo, href: assets/projects/finance/agentic.gif }
 ---
 

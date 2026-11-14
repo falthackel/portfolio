@@ -18,7 +18,7 @@ attachments:
   - { type: pdf, label: Paper (English), href: assets/projects/tiny-detector/18320008_Paper_ENG.pdf }
   - { type: pdf, label: Poster, href: assets/projects/tiny-detector/18320008_Poster.pdf }
   - { type: pdf, label: Final presentation (Indonesian), href: assets/projects/tiny-detector/18320008_Presentasi.pdf }
-  - { type: png, label: System architecture, href: assets/projects/tiny-detector/architecture.png }
+  - { type: png, label: System architecture, href: assets/projects/tiny-detector/architecture.webp }
   - { type: link, label: Code on GitHub, href: "https://github.com/falthackel/tiny-detector" }
 ---
 

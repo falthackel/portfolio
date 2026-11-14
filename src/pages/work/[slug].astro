@@ -16,6 +16,32 @@ export async function getStaticPaths() {
 const { project } = Astro.props;
 const p = project.data;
 const { Content } = await render(project);
+
+// Files and links listed under "attachments" in the project's Markdown file.
+// Local files must live in public/; any that are missing (e.g. videos not added yet) are skipped.
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+
+const kindOf = (href: string) => {
+  const ext = href.split('?')[0].split('.').pop()?.toLowerCase() ?? '';
+  if (href.includes('github.com')) return 'GitHub';
+  if (ext === 'pdf') return 'PDF';
+  if (ext === 'ipynb') return 'Notebook';
+  if (ext === 'gif') return 'Animation';
+  if (['mp4', 'webm'].includes(ext)) return 'Video';
+  if (['png', 'jpg', 'jpeg', 'webp', 'svg'].includes(ext)) return 'Image';
+  return 'Link';
+};
+
+const links = p.attachments
+  .map((a) => {
+    const external = /^https?:\/\//.test(a.href);
+    const local = a.href.replace(/^\//, '');
+    return { ...a, external, url: external ? a.href : `/${local}`, kind: kindOf(a.href), ok: external || existsSync(join(process.cwd(), 'public', local)) };
+  })
+  .filter((a) => a.ok)
+  // Code first: it is what most reviewers look for.
+  .sort((a, b) => Number(b.kind === 'GitHub') - Number(a.kind === 'GitHub'));
 ---
 
 <BaseLayout title={`${p.title}, ${site.name}`} description={p.summary}>
@@ -31,6 +57,19 @@ const { Content } = await render(project);
         <div><dt>Timeframe</dt><dd>{p.date}</dd></div>
         {p.stack.length > 0 && <div><dt>Stack</dt><dd>{p.stack.join(', ')}</dd></div>}
       </dl>
+      {links.length > 0 && (
+        <nav class="files" aria-labelledby="files-title">
+          <h2 id="files-title" class="files__title">Files and links</h2>
+          <ul>
+            {links.map((a) => (
+              <li>
+                <a href={a.url} {...(a.external ? { rel: 'noopener' } : {})}>{a.label}</a>
+                <span class="files__kind">{a.kind}</span>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )}
     </header>
 
     <figure class="case__figure">
@@ -63,6 +102,21 @@ const { Content } = await render(project);
   .facts dt { font-size: var(--step--1); color: var(--muted); }
   .facts dd { margin: 0; font-weight: 600; }
   @media (min-width: 640px) { .facts { grid-template-columns: 1fr 1fr; } }
+  .files { margin: 0 0 2rem; max-width: 60rem; }
+  .files__title { font-size: var(--step-0); font-family: var(--font-body); font-weight: 700; margin-bottom: 0.5rem; }
+  .files ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; }
+  .files li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.4rem 0.85rem;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+  }
+  .files a { font-weight: 600; }
+  .files__kind { font-size: var(--step--1); color: var(--muted); }
   .case__figure {
     margin: 0 0 2.5rem;
     max-width: 60rem;
