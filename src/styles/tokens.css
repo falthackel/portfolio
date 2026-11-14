@@ -38,7 +38,7 @@
   /* Space and shape */
   --gutter: 16px;
   --radius: 6px;
-  --page-max: 72rem;
+  --page-width: 78%;   /* share of the window used by the page on wide screens */
 }
 
 /* Dark mode: follows the system setting unless the visitor chose light. */

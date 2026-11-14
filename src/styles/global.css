@@ -90,11 +90,19 @@ a:hover { text-decoration-thickness: 2px; }
 
 /* ---------- Layout ---------- */
 
+/* Page width is a share of the window (set in tokens.css), so the layout
+   stretches and shrinks with the window and with browser zoom.
+   On phones and small windows it uses the full width minus a small gutter. */
 .page {
   width: 100%;
-  max-width: var(--page-max);
   margin-inline: auto;
   padding-inline: var(--gutter);
+}
+@media (min-width: 64em) {
+  .page {
+    width: var(--page-width);
+    padding-inline: 0;
+  }
 }
 
 .section { padding-block: 3.5rem; }
